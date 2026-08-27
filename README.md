@@ -114,42 +114,6 @@ Database-level locking helps prevent duplicate token allocation during concurren
 
 ---
 
-## 🔌 API Examples
-
-### Farmer Login
-
-```http
-POST /api/v1/auth/farmer/login
-```
-
-```json
-{
-  "mobileNumber": "9876543210"
-}
-```
-
-### Verify OTP
-
-```http
-POST /api/v1/auth/farmer/verify-otp
-```
-
-```json
-{
-  "mobileNumber": "9876543210",
-  "otp": "123456"
-}
-```
-
-### Farmer Profile
-
-```http
-GET /api/v1/farmers/profile
-Authorization: Bearer <token>
-```
-
----
-
 ## 📁 Project Structure
 
 ```text
@@ -220,11 +184,11 @@ Kisan Setu is being developed to create a more **transparent, efficient, and far
 
 ### 🔗 Team Members
 
-* **Team Member 1** — [GitHub](https://github.com/iamkumaresh) · [LinkedIn](https://www.linkedin.com/in/kumaresh-jana-050406k)
+* **Team Member 1** — [GitHub](https://github.com/iamkumaresh) · [LinkedIn](https://www.linkedin.com/in/kumaresh-jana-050406k/)
 * **Team Member 2** — [GitHub](https://github.com/Zabed05) · [LinkedIn](https://www.linkedin.com/in/zabed-khan/)
 * **Team Member 3** — [GitHub](https://github.com/HRITWIK11) · [LinkedIn](https://www.linkedin.com/in/hritwik-mondal-ba2a47332/)
 * **Team Member 4** — [GitHub](https://github.com/beraa5413-ops) · [LinkedIn](https://www.linkedin.com/in/priyoshree-bera-b5196a303/)
-* **Team Member 5** — [GitHub](https://github.com/sayantikaghosh581-ctrl) · [LinkedIn](https://www.linkedin.com/in/sayantika-ghosh-4257413ba)
+* **Team Member 5** — [GitHub](https://github.com/sayantikaghosh581-ctrl) · [LinkedIn](https://www.linkedin.com/in/sayantika-ghosh-4257413ba/)
 * **Team Member 6** — [GitHub](https://github.com/souranaray-sketch) · [LinkedIn](https://www.linkedin.com/in/sourana-ray-8215b3371/)
 
 ---
