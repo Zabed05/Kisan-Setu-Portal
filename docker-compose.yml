@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: kpip-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: kpip
+      POSTGRES_USER: kpip_user
+      POSTGRES_PASSWORD: kpip_secure_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: kpip-redis
+    ports:
+      - "6379:6379"
+
+  minio:
+    image: minio/minio:RELEASE.2024-01-28T22-41-43Z
+    container_name: kpip-minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: kpip_minio_user
+      MINIO_ROOT_PASSWORD: kpip_minio_password
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+
+  backend-spring:
+    build:
+      context: ./backend-spring
+      dockerfile: Dockerfile
+    container_name: kpip-backend-spring
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/kpip
+      SPRING_DATASOURCE_USERNAME: kpip_user
+      SPRING_DATASOURCE_PASSWORD: kpip_secure_password
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      JWT_SECRET: kpip_jwt_secret_key_sih_2026_authority_key
+    depends_on:
+      - postgres
+      - redis
+
+  backend-python:
+    build:
+      context: ./backend-python
+      dockerfile: Dockerfile
+    container_name: kpip-backend-python
+    ports:
+      - "8000:8000"
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: kpip-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8080/api/v1
+      NEXT_PUBLIC_PREDICT_URL: http://localhost:8000/predict
+    depends_on:
+      - backend-spring
+
+volumes:
+  postgres_data:
+  minio_data:

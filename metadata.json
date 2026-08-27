@@ -1,0 +1,6 @@
+{
+  "name": "Kisan Procurement Intelligence Platform (KPIP)",
+  "description": "Government-grade procurement management platform for SIH 2026: Predict, Schedule, Queue, Track, and Notify for seamless agricultural mandi operations.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #006b26;
+    --primary-container: #0a8733;
+    --primary-fixed: #8dfa96;
+    --on-primary: #ffffff;
+    --secondary: #006e22;
+    --secondary-container: #82fc89;
+    --tertiary: #2955bf;
+    --tertiary-container: #476ed9;
+    --tertiary-fixed: #dbe1ff;
+    --background: #f8fafb;
+    --surface: #f8fafb;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f2f4f5;
+    --surface-container: #eceeef;
+    --surface-container-high: #e6e8e9;
+    --surface-container-highest: #e1e3e4;
+    --on-surface: #191c1d;
+    --on-surface-variant: #3f4a3d;
+    --outline: #6e7a6c;
+    --outline-variant: #becaba;
+    --error: #ba1a1a;
+  }
+  
+  body {
+    font-family: 'Inter', 'Noto Sans', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafb;
+    color: #191c1d;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #becaba;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6e7a6c;
+}
+
+.map-pattern {
+  background-color: #f8fafb;
+  background-image: 
+    radial-gradient(#cbd5e1 1.2px, transparent 1.2px),
+    radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(71, 110, 217, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(71, 110, 217, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(71, 110, 217, 0); }
+}
+
+.pulse-blue {
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border: 1px solid #E2E8F0;
+}

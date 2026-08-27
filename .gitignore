@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Custom excludes requested by user
+backend-spring/
+backend-python/
+README.md
+.vite/
+
