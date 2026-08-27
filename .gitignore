@@ -8,5 +8,4 @@ coverage/
 !.env.example
 
 # Custom excludes requested by user
-README.md
 .vite/
