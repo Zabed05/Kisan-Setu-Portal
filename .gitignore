@@ -8,8 +8,5 @@ coverage/
 !.env.example
 
 # Custom excludes requested by user
-backend-spring/
-backend-python/
 README.md
 .vite/
-
